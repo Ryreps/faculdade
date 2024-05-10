@@ -27,4 +27,3 @@ document.querySelector('.carrossel .proximo').addEventListener('click', function
 // Mostra apenas o primeiro cliente ao carregar a página
 mostrarCliente(indiceClienteAtual);
 
-alert('teste')
