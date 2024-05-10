@@ -1,0 +1,424 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    /* evita que a barra inferior de movimento apareca */
+}
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /*mantem o header no lugar */
+}
+
+#header {
+    padding: 20px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(9, 107, 255, 0.36);
+    overflow: hidden; /* Para esconder o retângulo pseudo-elemento */
+}
+#header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 255, 255, 0.5); Cor de fundo transparente */
+    z-index: -1; /* Coloca o retângulo atrás do conteúdo do cabeçalho */
+}    
+#logo {
+    font-size: 24px;
+    float: left; /* flotuar no lugar esquerda */
+    font-weight: bold;
+    color: #fff;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#menu {
+    float: right;
+    margin-right: 70px;
+    margin-top: 10px;
+}
+#menu a {
+    margin-left: 70px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;   
+}
+#menu a:hover {
+    color: #ccc;
+}
+#banner {
+    text-align: center;
+    margin-top: 0px;
+    position: relative;
+    z-index: 1;
+}
+#banner img {
+    width: 100%;
+    height: auto;
+    position: relative; 
+}
+#banner-overlay {
+    position: absolute;
+    bottom: 15px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 90%; 
+    height: auto;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2; 
+}
+#banner-overlay::before {
+    content: "";
+    position: absolute;
+    bottom: -12%;
+    left: -12%; 
+    width: 125%;
+    height: 130px; 
+    background-color: #e3d8d837;
+    z-index: -1; 
+}
+
+#search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+#search-box .input-group {
+    width: 30%; 
+    margin-right: 10px; 
+        flex-wrap: wrap;
+}
+#search-box .input-group:last-child {
+    margin-right: 0; 
+}
+#search-box .input-group label {
+    display: block;
+    padding-right: 1rem;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-align: left;
+    color: #666;
+}
+#search-box input[type="text"],
+#search-box input[type="date"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    outline: none;
+}
+#search-box button {
+    padding: 10px 20px;
+    font-size: 16px; 
+    border: none;
+    border-radius: 5px;
+    background-color: #ff7f00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 19px; /
+}
+#search-box button:hover {
+    background-color: #cc6600;
+}
+#banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    z-index: 3; 
+    transform: translate(-50%, -50%); 
+} 
+
+.Y{
+    margin: 10px;
+    padding-bottom: 10px;
+}
+#upcoming-trips {
+    text-align: justify;
+    margin-top: 50px;
+    max-height: 100%;
+    margin-bottom: 1px;
+    padding: 0px 20px ;
+    background-color: #fff;
+    width: 48%;
+    float: left;
+    line-height: 1.6;
+}
+#upcoming-trips h2 {
+    font-size: 30px;
+    color: rgb(102, 100, 240);
+    margin-left: 50px;
+}
+#upcoming-trips hr {
+    border: 4px solid orange; 
+    border-radius: 10px; 
+    width: 250px; 
+    margin-left: 50px; 
+    margin-bottom: 20px; 
+}
+#upcoming-trips p {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: justify;
+    line-height: 1.6;
+}
+#upcoming-trips button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff7f00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 50px;
+}
+
+#upcoming-trips button:hover {
+    background-color: #cc6600;
+}
+
+.teste{
+    margin: 10px;
+    max-width: 100%;
+    min-height: 100%;
+}
+/* teste grid  */
+/* apagou isso voltou como antes */
+#photo-grid {
+    padding: 5px;
+    max-width: 100%;
+    min-width: 48%;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; retira pra ficar menos espaço; */
+}
+.photo {
+    width: 30%;
+    min-width: 30%;
+    margin-bottom: 20px;
+    margin-right: 60px;
+    margin-top: 10px;
+    border: 8px solid #fff; 
+    border-radius: 5px; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+} 
+
+.photo img {
+    width: 100%;
+    height: cente;
+}
+
+
+.avaliacoes h1{
+    text-align: center;
+}
+
+.carrossel {
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+}
+
+
+.cliente {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+
+.cliente img {
+    border: 2px solid blue; 
+    border-radius: 50%;
+}
+
+
+.carrossel button {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    border: none;
+    border-radius: 50%;
+    padding: 10px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+
+.anterior {
+    left: 10px; 
+}
+
+
+.proximo {
+    right: 10px; 
+}
+
+
+footer {
+    background-color: #3C4852; 
+    color: #fff; 
+    padding: 50px 20px; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+
+.empresa,
+.parceiros,
+.newsletter,
+.rede-social {
+    width: 30%; 
+}
+
+
+.logo {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+
+.parceiros p {
+    margin: 5px 0; 
+}
+
+
+.input-group {
+    display: flex; 
+    margin-bottom: 10px; 
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    width: 70%; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.input-group button {
+    width: 28%; 
+    
+    padding: 10px; 
+    border: none;
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: #fff; 
+    cursor: pointer; 
+}
+
+.input-group button:hover {
+    background-color: #0056b3; 
+}
+
+
+.rede-social {
+    margin-top: 20px; 
+}
+
+.rede-social a{
+    color: grey;
+    text-decoration: none;
+}
+
+.rede-social a:hover{
+    color: orange;
+}
+
+h1{
+    font-style: italic;
+    color: #0056b3;
+}
+
+.destinos {
+    background: linear-gradient(to right, #FFE7C2,#BDACFF);
+      background-color: #f9f9f9;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    .destinos h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    
+    /* Estilo para o grid de imagens */
+    .grupo-destinos {
+      display: grid;
+      grid-template-columns: repeat(3,1fr); /*repeat(auto-fit, minmax(200px, 1fr)); /Cria colunas automáticas */
+      gap: 10px; /*Espaçamento entre as imagens */
+      justify-content: center; /*Centraliza horizontalmente; */
+    }
+
+    .card-destino {
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      
+      .card-destino img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .card-destino div {
+        padding: 20px;
+      }
+      
+      .card-destino span {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      
+      .card-destino p {
+        margin-bottom: 10px;
+      }
+      
+      .card-destino .valor {
+        margin-bottom: 20px;
+      }
+      
+      .card-destino button {
+        background-color: orange;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .card-destino button:hover {
+        background-color:#747cfa;
+    }    
+ 
